@@ -153,7 +153,6 @@ Section "OSSEC Agent (required)" MainSec
     File default-ossec.conf
     File manage_agents.exe
     File /oname=win32ui.exe os_win32ui.exe
-    File ossec-rootcheck.exe
     File internal_options.conf
     File default-local_internal_options.conf
     File setup-windows.exe

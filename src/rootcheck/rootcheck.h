@@ -105,7 +105,6 @@ void check_rc_pids(void);
 int check_rc_readproc(int pid);
 
 void check_rc_ports(void);
-void check_open_ports(void);
 void check_rc_if(void);
 
 int Read_Rootcheck_Config(const char *cfgfile);

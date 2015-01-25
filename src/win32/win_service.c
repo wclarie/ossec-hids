@@ -306,10 +306,8 @@ void WINAPI OssecServiceStart (DWORD argc, LPTSTR *argv)
         return;
     }
 
-#ifdef OSSECHIDS
     /* Start process */
     local_start();
-#endif
 }
 
 #endif /* WIN32 */

@@ -35,8 +35,7 @@ int notify_rk(int rk_type, const char *msg)
         return (0);
     }
 
-#ifdef OSSECHIDS
-    /* When running in context of OSSEC-HIDS, send problem to the rootcheck queue */
+    /* Send problem to the rootcheck queue */
     if (SendMSG(rootcheck.queue, msg, ROOTCHECK, ROOTCHECK_MQ) < 0) {
         merror(QUEUE_SEND, ARGV0);
 
@@ -48,7 +47,6 @@ int notify_rk(int rk_type, const char *msg)
             ErrorExit(QUEUE_FATAL, ARGV0, DEFAULTQPATH);
         }
     }
-#endif
 
     return (0);
 }
@@ -257,10 +255,6 @@ void run_rk_check()
     if (rootcheck.checks.rc_ports) {
         debug1("%s: DEBUG: Going into check_rc_ports", ARGV0);
         check_rc_ports();
-
-        /* Check open ports */
-        debug1("%s: DEBUG: Going into check_open_ports", ARGV0);
-        check_open_ports();
     }
 
     /* Check interfaces */

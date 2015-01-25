@@ -171,10 +171,8 @@ static void loop_all_pids(const char *ps, pid_t max_pid, int *_errors, int *_tot
             }
         }
 
-        /* If we are run in the context of OSSEC-HIDS, sleep here (no rush) */
-#ifdef OSSECHIDS
+        /* Sleep here (no rush) */
         sleep(2);
-#endif
 
         /* Everything fine, move on */
         if (_ps0 && _kill0 && _gsid0 && _gpid0 && _proc_stat && _proc_read) {

@@ -104,10 +104,8 @@ static void test_ports(int proto, int *_errors, int *_total)
                 continue;
             }
 
-#ifdef OSSECHIDS
-            /* If we are in the context of OSSEC-HIDS, sleep here (no rush) */
+            /* Sleep here (no rush) */
             sleep(2);
-#endif
 
             if (!run_netstat(proto, i) && conn_port(proto, i)) {
                 char op_msg[OS_SIZE_1024 + 1];

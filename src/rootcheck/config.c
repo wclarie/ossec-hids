@@ -7,7 +7,6 @@
  * Foundation
  */
 
-#ifdef OSSECHIDS
 #include "shared.h"
 #include "rootcheck.h"
 #include "config/config.h"
@@ -31,5 +30,4 @@ int Read_Rootcheck_Config(const char *cfgfile)
 
     return (0);
 }
-#endif /* OSSECHIDS */
 

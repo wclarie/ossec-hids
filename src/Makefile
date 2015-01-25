@@ -26,7 +26,7 @@ USE_OPENSSL?=auto
 ONEWAY?=no
 CLEANFULL?=no
 
-DEFINES=-DMAX_AGENTS=${MAXAGENTS} -DOSSECHIDS
+DEFINES=-DMAX_AGENTS=${MAXAGENTS}
 DEFINES+=-DDEFAULTDIR=\"${PREFIX}\"
 DEFINES+=-DUSER=\"${OSSEC_USER}\"
 DEFINES+=-DREMUSER=\"${OSSEC_USER_REM}\"
@@ -865,7 +865,7 @@ ossec-regex: util/ossec-regex.o ${ossec_libs} ${ZLIB_LIB}
 
 rootcheck_c := $(wildcard rootcheck/*.c)
 rootcheck_o := $(rootcheck_c:.c=.o)
-rootcheck_o_lib := $(filter-out rootcheck/rootcheck-config.o, ${rootcheck_o})
+rootcheck_o_lib := ${rootcheck_o}
 rootcheck_o_cmd := $(filter-out rootcheck/config.o, ${rootcheck_o})
 
 
@@ -877,11 +877,6 @@ rootcheck.a: ${rootcheck_o_lib}
 	${OSSEC_LINK} $@ $^
 	${OSSEC_RANLIB} $@
 
-#ossec-rootcheck: rootcheck/rootcheck-config.o rootcheck.a ${ossec_libs}
-#	@echo ${rootcheck_o_cmd}
-#	@echo ${rootcheck_o_lib}
-#	@echo ${rootcheck_o}
-#	${OSSEC_CC} ${CFLAGS} ${ZLIB_INCLUDE} rootcheck/rootcheck-config.o rootcheck.a rootcheck/rootcheck.c ${ZLIB_LIB} ${ossec_libs}  -o $@
 
 #### syscheck ######
 
